@@ -7,7 +7,7 @@
 
 using namespace std;
 
-// 0 is red, 1 is black (for node->getColor(););
+// FYI: 0 is red, 1 is black (for node->getColor(););
 
 
 void ADD(node* &root, node* &current, node* parent, node* grandparent, int data);
@@ -54,6 +54,7 @@ int main() {
 
     else if (strcmp(input, "PRINT")==0) {
       // print
+      cout << "0 is red and 1 is black fyi" << endl;
       PRINT(root, 0);
     }
 
@@ -99,7 +100,7 @@ void ADD(node* &root, node* &current, node* parent, node* grandparent, int data)
      
     }
     current->setParent(parent);
-    cout << data << "'s parent is: " << parent->getValue() << endl;
+    //cout << data << "'s parent is: " << parent->getValue() << endl;
 
     //while
     node* currentNode=current;
@@ -120,7 +121,7 @@ void ADD(node* &root, node* &current, node* parent, node* grandparent, int data)
 	if (uncle!=NULL) {
 	  if (uncle->getColor()==0) {
 	    // uncle is red, case 3.1
-	    cout << "unnnnnnnncle  is red" << endl;
+	    //cout << "unnnnnnnncle  is red" << endl;
 	    uncle->setColor(1);
 	    parent->setColor(1);
 	    parent->getParent()->setColor(0);
@@ -382,7 +383,7 @@ void rotateleft(node* &parent, node* & root) {
     // this means the parent is the root
     root = newparent;
     root->setParent(NULL);
-    cout << "setting new root:)" << endl;
+    //cout << "setting new root:)" << endl;
     
   }
   else if (parent->getValue() > up->getValue() ) {
@@ -403,14 +404,14 @@ void rotateleft(node* &parent, node* & root) {
   
 
   if (templeftchild!=NULL) {
-    cout << "temp left chidl notnull: " << endl;
-    cout << templeftchild->getValue() << endl;
+    //cout << "temp left chidl notnull: " << endl;
+    //cout << templeftchild->getValue() << endl;
     parent->setRight(templeftchild);
     templeftchild->setParent(parent);
   }
 
   else {
-    cout << "setting parent right to null, parent is: " << parent->getValue() << endl;
+    //cout << "setting parent right to null, parent is: " << parent->getValue() << endl;
     parent->setRight(NULL);
   }
   //  parent->setRight(NULL);
